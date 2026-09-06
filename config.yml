@@ -1,0 +1,23 @@
+# Data file paths, relative to the project root
+paths:
+  raw_data: "data/raw/online_retail_II.xlsx"
+  clean_data: "data/processed/transactions.parquet"
+  rfm_output: "data/processed/rfm.parquet"
+  figures_dir: "reports/figures"
+
+# Excel sheet names in the raw file
+sheets:
+  - "Year 2009-2010"
+  - "Year 2010-2011"
+
+# Cleaning thresholds — every one of these is a decision to justify
+cleaning:
+  min_quantity: 1
+  min_price: 0.01
+  drop_missing_customer_id: true
+  cancellation_prefix: "C"
+
+# Analysis parameters
+analysis:
+  rfm_quantiles: 5
+  currency: "GBP"
