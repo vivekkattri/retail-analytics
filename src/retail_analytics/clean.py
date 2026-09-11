@@ -23,7 +23,7 @@ def remove_bad_rows(df):
      df = df[~df["StockCode"].isin(non_products)]
      # ~ sign here means not true which means it will remove the rows which have entries of 
      # items in non_products list from df dataframe.
-     df=df[df["Price"]>=0]
+     df=df[df["Price"]>0]
      return df
 
 def add_revenue(df):
