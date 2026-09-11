@@ -6,6 +6,9 @@ def fix_types(df):
     df["Customer ID"] = df["Customer ID"].astype("Int64")
     df["StockCode"] = df["StockCode"].astype(str)
     df["Invoice"]= df["Invoice"].astype(str)
+    df["Country"]=df["Country"].replace("EIRE","Ireland")
+    not_countries=["Unspecified","European Community"]
+    df["Country"]=df["Country"].replace(not_countries,"Other")
     return df
 
 def split_Quantity(df):
@@ -20,6 +23,7 @@ def remove_bad_rows(df):
      df = df[~df["StockCode"].isin(non_products)]
      # ~ sign here means not true which means it will remove the rows which have entries of 
      # items in non_products list from df dataframe.
+     df=df[df["Price"]>=0]
      return df
 
 def add_revenue(df):
